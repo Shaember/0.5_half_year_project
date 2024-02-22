@@ -10,7 +10,7 @@ const isEven = (num) => num % 2 === 0;
 
 const rounds = 3;
 
-for (let i = 0; i < rounds; i++) {
+for (let i = 0; i < rounds; i += 1) {
   const number = Math.floor(Math.random() * 100);
   console.log(`Question: ${number}`);
   const userAnswer = readlineSync.question('Your answer: ');
@@ -20,7 +20,7 @@ for (let i = 0; i < rounds; i++) {
   if (userAnswer !== correctAnswer) {
     console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
     console.log(`Let's try again, ${name}!`);
-    return;
+    break;
   } else {
     console.log('Correct!');
   }

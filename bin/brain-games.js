@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import { greeting } from './src/cli';
 import readlineSync from 'readline-sync';
+import { greeting } from './src/cli';
 
 export const playGame = (gameDescription, getGameData) => {
   console.log('Welcome to the Brain Games!');

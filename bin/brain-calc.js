@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { playGame } from './engine.js';
+// import { playGame } from './engine.js';
 
 const gameDescription = 'What is the result of the expression?';
 
@@ -8,7 +8,7 @@ const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)
 const operations = [
   (a, b) => [`${a} + ${b}`, a + b],
   (a, b) => [`${a} - ${b}`, a - b],
-  (a, b) => [`${a} * ${b}`, a * b]
+  (a, b) => [`${a} * ${b}`, a * b],
 ];
 
 const getGameData = () => {
