@@ -1,20 +1,28 @@
-#!/usr/bin/env node
-// import { playGame } from './engine.js';
+import { playGame, getRandomNumber } from '../index.js';
 
-const gameDescription = 'What is the result of the expression?';
+function generateQuestion() {
+  let question = '';
+  let correctAnswer = '';
 
-const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+  const number1 = getRandomNumber(20, 0);
+  const number2 = getRandomNumber(20, 0);
+  const operator = getRandomNumber(0, 2);
 
-const operations = [
-  (a, b) => [`${a} + ${b}`, a + b],
-  (a, b) => [`${a} - ${b}`, a - b],
-  (a, b) => [`${a} * ${b}`, a * b],
-];
+  if (operator === 0) {
+    question = `${number1} + ${number2}`;
+    correctAnswer = `${number1 + number2}`;
+  } else if (operator === 1) {
+    question = `${number1} - ${number2}`;
+    correctAnswer = `${number1 - number2}`;
+  } else {
+    question = `${number1} * ${number2}`;
+    correctAnswer = `${number1 * number2}`;
+  }
 
-const getGameData = () => {
-  const operationIndex = getRandomNumber(0, operations.length - 1);
-  const [a, b] = [getRandomNumber(1, 20), getRandomNumber(1, 20)];
-  return operations[operationIndex](a, b);
-};
+  return [question, correctAnswer];
+}
 
-playGame(gameDescription, getGameData);
+export default function playCalculatorGame() {
+  const rules = 'What is the result of the expression?';
+  playGame(rules, generateQuestion);
+}
